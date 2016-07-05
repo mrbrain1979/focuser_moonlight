@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C5F80730-F44F-4478-BDAE-6634EFC2CA88}</ProjectGuid>
     <RootNamespace>Sketch1</RootNamespace>
-    <ProjectName>Sketch1</ProjectName>
+    <ProjectName>Focuser_moonlight</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -47,7 +47,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\mr_br\Documents\Arduino\libraries\AccelStepper;C:\Users\mr_br\Documents\Arduino\libraries\AccelStepper\utility;G:\Program Files (x86)\Arduino\libraries;G:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;G:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\4hxmhl4l.1z4\Micro Platforms\default\debuggers;C:\Users\mr_br\Documents\Arduino\libraries;G:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;G:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\eightanaloginputs;C:\Users\mr_br\Documents\Arduino\focus3\Sketch1\Sketch1;g:\program files (x86)\arduino\hardware\tools\avr\avr\include\;g:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;g:\program files (x86)\arduino\hardware\tools\avr\avr\;g:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.8.1\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\mr_br\Documents\Arduino\libraries\AccelStepper;C:\Users\mr_br\Documents\Arduino\libraries\AccelStepper\utility;C:\Users\mr_br\Documents\Arduino\libraries\EEPROM2;C:\Users\mr_br\Documents\Arduino\libraries\EEPROM2\utility;G:\Program Files (x86)\Arduino\libraries;G:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;G:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\4hxmhl4l.1z4\Micro Platforms\default\debuggers;C:\Users\mr_br\Documents\Arduino\libraries;G:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;G:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\eightanaloginputs;C:\Users\mr_br\Documents\Arduino\focus3\Sketch1\Sketch1;g:\program files (x86)\arduino\hardware\tools\avr\avr\include\;g:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;g:\program files (x86)\arduino\hardware\tools\avr\avr\;g:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.8.1\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>C:\Users\mr_br\Documents\Arduino\focus3\Sketch1\Sketch1\__vm\.Sketch1.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__AVR_ATmega328p__;__AVR_ATmega328P__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=10707;ARDUINO_AVR_NANO;ARDUINO_ARCH_AVR;__cplusplus=201103L;GCC_VERSION=40801;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -71,7 +71,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="Sketch1.ino">
+    <None Include="Focuser_moonlight.ino">
       <FileType>CppCode</FileType>
     </None>
   </ItemGroup>

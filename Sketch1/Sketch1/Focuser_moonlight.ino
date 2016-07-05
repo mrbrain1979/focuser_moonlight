@@ -11,6 +11,7 @@
 // orly.andico@gmail.com, 13 April 2014
 
 
+#include <EEPROM2.h>
 #include <AccelStepper.h>
 // #include <AFMotor.h>
 
@@ -44,6 +45,7 @@ int speed = 32;
 int eoc = 0;
 int idx = 0;
 long millisLastMove = 0;
+int buttonstate1, buttonstate2 = 0;
 
 void setup()
 {
@@ -64,7 +66,21 @@ void setup()
 
 
 void loop() {
-	digitalWrite(SLEEP, HIGH);
+	
+	buttonstate1 = digitalRead(8);
+	buttonstate2 = digitalRead(10);
+	if (buttonstate1 == LOW) {
+		digitalWrite(SLEEP, HIGH);
+		stepper.run();
+		stepper.moveTo(stepper.currentPosition() + 15);
+		//digitalWrite(SLEEP, LOW);
+	}
+	if (buttonstate2 == LOW) {
+		digitalWrite(SLEEP, HIGH);
+		stepper.run();
+		stepper.moveTo(stepper.currentPosition() - 15);
+		//digitalWrite(SLEEP, LOW);
+	}
 	// run the stepper if there's no pending command and if there are pending movements
 	if (!Serial.available())
 	{
@@ -79,7 +95,7 @@ void loop() {
 			if ((millis() - millisLastMove) > 15000) {
 				stepper.disableOutputs();
 				// motor1.release();
-				//digitalWrite(SLEEP, LOW);
+				digitalWrite(SLEEP, LOW);
 			}
 		}
 
@@ -148,7 +164,15 @@ void loop() {
 
 		// get the current motor position
 		if (!strcasecmp(cmd, "GP")) {
-			pos = stepper.currentPosition();
+			if (stepper.currentPosition() != 0) {
+				pos = stepper.currentPosition();
+
+				
+			}
+			else
+			{
+				EEPROM_read(0, pos);
+			}
 			char tempString[6];
 			sprintf(tempString, "%04X", pos);
 			Serial.print(tempString);
@@ -213,6 +237,7 @@ void loop() {
 		// set current motor position
 		if (!strcasecmp(cmd, "SP")) {
 			pos = hexstr2long(param);
+			
 			stepper.setCurrentPosition(pos);
 		}
 
@@ -220,6 +245,7 @@ void loop() {
 		if (!strcasecmp(cmd, "SN")) {
 			digitalWrite(SLEEP, HIGH);
 			pos = hexstr2long(param);
+			EEPROM_write(0, pos);
 			stepper.moveTo(pos);
 		}
 
@@ -227,6 +253,7 @@ void loop() {
 		// initiate a move
 		if (!strcasecmp(cmd, "FG")) {
 			isRunning = 1;
+			digitalWrite(SLEEP, HIGH);
 			stepper.enableOutputs();
 		}
 
